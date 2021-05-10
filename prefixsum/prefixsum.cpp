@@ -29,7 +29,6 @@ int main (int argc, char* argv[]) {
   
   int n = atoi(argv[1]);
   int nbthreads = atoi(argv[2]);
-  omp_set_num_threads(nbthreads);
   
   int * arr = new int [n];
   generatePrefixSumData (arr, n);
@@ -46,7 +45,7 @@ int main (int argc, char* argv[]) {
   #pragma omp parallel
   {
     int s = 0;
-    int val = omp_get_thread_num();
+    int val = nbthreads.count();
 
 #pragma omp for schedule(static)
     for (int i=0;i<n;i++)
