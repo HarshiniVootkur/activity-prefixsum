@@ -45,7 +45,7 @@ int main (int argc, char* argv[]) {
   #pragma omp parallel
   {
     int s = 0;
-    int val = nbthreads.count();
+    int val = nbthreads;
 
 #pragma omp for schedule(static)
     for (int i=0;i<n;i++)
