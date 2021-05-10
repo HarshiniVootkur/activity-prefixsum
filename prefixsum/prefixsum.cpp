@@ -29,6 +29,7 @@ int main (int argc, char* argv[]) {
   
   int n = atoi(argv[1]);
   int nbthreads = atoi(argv[2]);
+  omp_set_num_threads(nbthreads);
   
   int * arr = new int [n];
   generatePrefixSumData (arr, n);
